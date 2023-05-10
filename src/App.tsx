@@ -6,13 +6,10 @@ interface Question {
   question: string;
   answers: string[];
 }
-
 interface Diagnose {
   diagnose: string;
 }
-
 type CurrentQuestion = Question & { answer?: string } | Diagnose;
-
 const initialQuestion: Question = {
   question: 'Pacjentem jest kot czy pies ?',
   answers: ['kot', 'pies'],
