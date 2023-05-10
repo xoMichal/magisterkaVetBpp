@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+ 
 }
 
 .container {
@@ -8,12 +9,15 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .question-container {
   display: flex;
   justify-content: center;
-  width: 80%;
+  width: 70%;
   height: 80%;
 }
 
@@ -92,4 +96,9 @@
   
   body {
   background-color: #f9f9f9;
+  }
+  .center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }

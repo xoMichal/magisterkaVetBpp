@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
+import History from './components/History';
 
 interface Question {
   question: string;
@@ -10,7 +11,7 @@ interface Diagnose {
   diagnose: string;
 }
 
-type CurrentQuestion = Question | Diagnose;
+type CurrentQuestion = Question & { answer?: string } | Diagnose;
 
 const initialQuestion: Question = {
   question: 'Pacjentem jest kot czy pies ?',
@@ -21,59 +22,25 @@ const App: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState<CurrentQuestion>(initialQuestion);
   const previousAnswerRef = useRef<string>('');
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
+  const [history, setHistory] = useState<{ question: string; answer: string }[]>([]);
 
   useEffect(() => {
     setIsButtonDisabled(false);
   }, [currentQuestion]);
 
-  const handleAnswerClick = rules(setIsButtonDisabled, previousAnswerRef, currentQuestion, setCurrentQuestion);
-
-  const handleFinishClick = () => {
-    setCurrentQuestion(initialQuestion);
-  };
-
-  return (
-    <div className="container">
-      <h1>VetApp</h1>
-      <div className="question-container">
-        {'question' in currentQuestion ? (
-          <div className="question-box">
-            <div className="question-text">{currentQuestion.question}</div>
-            <div className="answers">
-              {currentQuestion.answers.map((answer) => (
-                <button
-                  key={answer}
-                  className="answer"
-                  disabled={isButtonDisabled}
-                  onClick={() => handleAnswerClick(answer)}
-                >
-                  {answer}
-                </button>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div className="diagnose-box">
-            <p className="diagnose">{currentQuestion.diagnose}</p>
-            <button className="finish-button" disabled={isButtonDisabled} onClick={handleFinishClick}>
-              Zakończ
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default App;
-
-
-function rules(setIsButtonDisabled: React.Dispatch<React.SetStateAction<boolean>>, previousAnswerRef: React.MutableRefObject<string>, currentQuestion: CurrentQuestion, setCurrentQuestion: React.Dispatch<React.SetStateAction<CurrentQuestion>>) {
-  return (selectedAnswer: string) => {
+  
+  const handleAnswerClick = (selectedAnswer: string) => {
     setIsButtonDisabled(true);
     previousAnswerRef.current = selectedAnswer;
+    if ('answers' in currentQuestion) {
+      const newHistoryItem = {
+        question: currentQuestion.question,
+        answer: selectedAnswer,
+      };
+      setHistory([...history, newHistoryItem]);
 
-    if (
+      // Logika zmiany pytania na podstawie odpowiedzi
+      if (
       previousAnswerRef.current === "kot" &&
       (currentQuestion as Question).question === "Pacjentem jest kot czy pies ?"
       ) {
@@ -861,9 +828,68 @@ function rules(setIsButtonDisabled: React.Dispatch<React.SetStateAction<boolean>
       (currentQuestion as Question).question === "Czy zwierzę odzyskało oddech?"
       ) {
         setCurrentQuestion({diagnose: "Diagnoza: Zwierzę nie zyje"})
-      }
-      
-      // setCurrentQuestion({diagnose: "Dziękujemy za skorzystanie z naszej aplikacji. Wciśnij reset aby rozpocząć diagnozę"})
-      };
-}
+      }}
+  };
+
+  const handleBackClick = () => {
+    if (history.length > 0) {
+      const previousQuestion = history[history.length - 1].question;
+      const previousAnswer = history[history.length - 1].answer;
+      setCurrentQuestion({ question: previousQuestion, answers: [previousAnswer, ''] });
+      setHistory(history.slice(0, history.length - 1));
+    }
+  };
+  
+  const handleFinishClick = () => {
+    setCurrentQuestion(initialQuestion);
+    setHistory([])
+  };
+
+  return (
+    <>
+    <h1>VetApp</h1>
+    <div className="container">
+      <div className="question-container">
+        {'question' in currentQuestion ? (
+          <div className="question-box">
+            <div className="question-text">{currentQuestion.question}</div>
+            <div className="answers">
+              {currentQuestion.answers.map((answer) => (
+                <button
+                  key={answer}
+                  className="answer"
+                  disabled={isButtonDisabled}
+                  onClick={() => handleAnswerClick(answer)}
+                >
+                  {answer}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="diagnose-box">
+            <p className="diagnose">{currentQuestion.diagnose}</p>
+            <button className="finish-button" disabled={isButtonDisabled} onClick={handleFinishClick}>
+              Zakończ
+            </button>
+          </div>
+        )}
+      </div>
+      <div className="history-container">
+        <History history={history} />
+        <div className='center'>
+          <button className="finish-button" onClick={handleBackClick} disabled={history.length === 0}>
+            Wróć
+          </button>
+        </div>
+      </div>
+    </div>
+    </>
+  );
+};
+
+export default App;
+
+
+
 

@@ -1,0 +1,36 @@
+.history-container{
+  width: 30%;
+  height: 70%;
+}
+.history {
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  
+}
+
+.history h2 {
+  text-align: center;
+}
+
+.history-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history-item {
+  margin-bottom: 10px;
+}
+
+.question {
+  font-weight: bold;
+}
+
+.answer {
+  margin-left: 10px;
+}
