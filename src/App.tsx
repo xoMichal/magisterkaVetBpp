@@ -854,7 +854,7 @@ const App: React.FC = () => {
                 {currentQuestion.answers.map((answer) => (
                   <button
                     key={answer}
-                    className={`${answer === previousAnswerRef.current ? 'highlighted-answer' : 'answer'}`}
+                    className={"answer"}
                     disabled={isButtonDisabled}
                     onClick={() => handleAnswerClick(answer)}
                   >
