@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/magisterkaVetApp/static/css/main.c767f8e1.css",
+    "main.js": "/magisterkaVetApp/static/js/main.34f6685a.js",
+    "static/js/787.28cb0dcd.chunk.js": "/magisterkaVetApp/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/magisterkaVetApp/index.html",
+    "main.c767f8e1.css.map": "/magisterkaVetApp/static/css/main.c767f8e1.css.map",
+    "main.34f6685a.js.map": "/magisterkaVetApp/static/js/main.34f6685a.js.map",
+    "787.28cb0dcd.chunk.js.map": "/magisterkaVetApp/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c767f8e1.css",
+    "static/js/main.34f6685a.js"
+  ]
+}
