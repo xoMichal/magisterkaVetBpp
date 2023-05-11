@@ -1,0 +1,165 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace
+}
+
+.App {
+  text-align: center
+}
+
+.container {
+  align-items: center;
+  flex-direction: column;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%
+}
+
+.container,
+.question-container {
+  display: flex;
+  justify-content: center
+}
+
+.question-container {
+  height: 80%;
+  width: 70%
+}
+
+.question-box {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin: 5%;
+  padding: 20px;
+  text-align: center;
+  width: 40%
+}
+
+.question-text {
+  font-size: 25px;
+  font-weight: 700;
+  height: 50%;
+  margin-bottom: 10px
+}
+
+.answers {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 40%;
+  justify-content: space-evenly;
+  padding: 5%
+}
+
+.answer {
+  background-color: #fff
+}
+
+.answer,
+.highlighted-answer {
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  font-size: 25px;
+  height: 40%;
+  justify-content: center;
+  margin: 5px;
+  padding: 10px 20px;
+  width: 40%
+}
+
+.highlighted-answer {
+  background-color: #faebd7;
+  background-color: #fff;
+  color: blue;
+  font-weight: 700
+}
+
+.diagnose-box {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin: 5%;
+  padding: 20px;
+  text-align: center;
+  width: 40%
+}
+
+.diagnose {
+  font-size: 25px;
+  font-weight: 700;
+  height: 60%;
+  margin-bottom: 10px;
+  text-align: center
+}
+
+.finish-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 25px;
+  height: 20%;
+  padding: 10px 20px;
+  width: 40%
+}
+
+h1 {
+  text-align: center
+}
+
+body {
+  background-color: #f9f9f9
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
+
+.history-container {
+  height: 70%;
+  width: 30%
+}
+
+.history {
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 20px;
+  padding: 10px
+}
+
+.history h2 {
+  text-align: center
+}
+
+.history-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0
+}
+
+.history-item {
+  margin-bottom: 10px
+}
+
+.question {
+  font-weight: 700
+}
+
+.answer {
+  margin-left: 10px
+}
+
+/*# sourceMappingURL=main.c767f8e1.css.map*/
