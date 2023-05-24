@@ -468,7 +468,7 @@ const App: React.FC = () => {
       }
       if (
         previousAnswerRef.current === "Znaleziono" &&
-        (currentQuestion as Question).question === "Czy znaleziono na ciele jakieś guz?"
+        (currentQuestion as Question).question === "Czy znaleziono na ciele jakieś guzy?"
       ) {
         setCurrentQuestion({ diagnose: "Postępowanie: proszę zlecić biopsję. Prawdopodobna diagnoza: nowotwór" })
       }
