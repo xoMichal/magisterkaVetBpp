@@ -219,7 +219,7 @@ const App: React.FC = () => {
 
       if (
         previousAnswerRef.current === "nie" &&
-        (currentQuestion as Question).question === "Czy mozesz stwierdzić u kota stan padaczkowy?"
+        (currentQuestion as Question).question === "Czy możesz stwierdzić u kota stan padaczkowy?"
       ) {
         setCurrentQuestion({
           question:
@@ -331,7 +331,7 @@ const App: React.FC = () => {
       }
       if (
         previousAnswerRef.current === "tak" &&
-        (currentQuestion as Question).question === "Czy mozesz stwierdzić u kota stan padaczkowy?"
+        (currentQuestion as Question).question === "Czy możesz stwierdzić u kota stan padaczkowy?"
       ) {
         setCurrentQuestion({ diagnose: "Postępowanie: lecz doraźnie, pobierz krew do badań." })
       }
