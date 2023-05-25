@@ -404,15 +404,14 @@ const App: React.FC = () => {
         "Postępowanie: proszę wykonać badanie poznawcze na obecność świerzbu. Czy znaleziono objawy świerzbu"
       ) {
         setCurrentQuestion({
-          question:
-            "Diagnoza: świerzb. Postępowanie: Proszę zastosować leczenie przeciwświerzbowe",
-          answers: ["nie", "tak"],
+          diagnose:
+            "Diagnoza: świerzb. Postępowanie: Proszę zastosować leczenie przeciwświerzbowe"
         })
       }
       if (
         previousAnswerRef.current === "nie" &&
         (currentQuestion as Question).question ===
-        "Postępowanie: proszę wykonać badanie poznawcze na obecność świerzbu. Czy znaleziono objawy świerzbu?"
+        "Postępowanie: proszę wykonać badanie poznawcze na obecność świerzbu. Czy znaleziono objawy świerzbu"
 
       ) {
         setCurrentQuestion({
@@ -638,7 +637,7 @@ const App: React.FC = () => {
       ) {
         setCurrentQuestion({
           question: "Czy badanie kału równiez było poza normą?",
-          answers: ["Tak było poza normą", " Nie, było w normie "],
+          answers: ["Tak było poza normą", "Nie, było w normie"],
         })
       }
       if (
