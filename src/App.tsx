@@ -73,20 +73,20 @@ const App: React.FC = () => {
         (currentQuestion as Question).question === "Czy kot ma powiększenie obrysu jamy brzusznej?"
       ) {
         setCurrentQuestion({
-          question: "Czy w okolicy żołądkoa jest wypuk bębękowy?",
+          question: "Czy w okolicy żołądka jest wypuk bębękowy?",
           answers: ["tak", "nie"],
         })
       }
 
       if (
         previousAnswerRef.current === "tak" &&
-        (currentQuestion as Question).question === "Czy w okolicy żołądkoa jest wypuk bębękowy?"
+        (currentQuestion as Question).question === "Czy w okolicy żołądka jest wypuk bębękowy?"
       ) {
         setCurrentQuestion({ diagnose: "Diagnoza: Skręt żołądka" })
       }
       if (
         previousAnswerRef.current === "nie" &&
-        (currentQuestion as Question).question === "Czy w okolicy żołądkoa jest wypuk bębękowy?"
+        (currentQuestion as Question).question === "Czy w okolicy żołądka jest wypuk bębękowy?"
       ) {
         setCurrentQuestion({
           question: "Czy występuje bladość błon śluzowych i ostry brzuch?",
@@ -840,7 +840,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <h1>VetApp</h1>
+      <h1>VetAdvice</h1>
       <div className="container">
         <div className="question-container">
           {'question' in currentQuestion ? (
