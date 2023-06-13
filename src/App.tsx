@@ -20,6 +20,8 @@ const App: React.FC = () => {
   const previousAnswerRef = useRef<string>('');
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
   const [history, setHistory] = useState<{ question: string; answers: string[]; selectedAnswer: string }[]>([]);
+  let liczbaKlikniec: number = 0;
+  let czasStart: number;
 
   useEffect(() => {
     setIsButtonDisabled(false);
@@ -822,9 +824,17 @@ const App: React.FC = () => {
         setCurrentQuestion({ diagnose: "Diagnoza: Zwierzę nie zyje" })
       }
     }
+    liczbaKlikniec++;
+
+  // Jeżeli to jest pierwsze kliknięcie, zapisz czas startu
+  if(liczbaKlikniec === 1) {
+    czasStart = new Date().getTime();
+  }
+    
   };
 
   const handleBackClick = () => {
+    liczbaKlikniec++
     if (history.length > 0) {
       const previousQuestion = history[history.length - 1].question;
       const previousAnswers = history[history.length - 1].answers;
@@ -836,6 +846,12 @@ const App: React.FC = () => {
   const handleFinishClick = () => {
     setCurrentQuestion(initialQuestion);
     setHistory([]);
+    liczbaKlikniec++;
+
+    // Oblicz czas trwania
+    let czasTrwania: number = new Date().getTime() - czasStart;
+    console.log('Liczba kliknięć: ' + liczbaKlikniec);
+  console.log('Czas trwania: ' + czasTrwania + ' ms');
   };
 
   return (
