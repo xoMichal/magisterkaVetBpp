@@ -21,7 +21,7 @@ const App: React.FC = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
   const [history, setHistory] = useState<{ question: string; answers: string[]; selectedAnswer: string }[]>([]);
   const [klik, setKlik] = useState(0)
-  const [czasStart,setCzasStart]= useState(new Date().getTime())
+  const [czasStart, setCzasStart] = useState(new Date().getTime())
 
   useEffect(() => {
     setIsButtonDisabled(false);
@@ -825,10 +825,11 @@ const App: React.FC = () => {
       }
     }
     setKlik(klik + 1);
-  if(klik === 1) {
-    let startTime = new Date().getTime();
-    setCzasStart(startTime)}
-    
+    if (klik === 1) {
+      let startTime = new Date().getTime();
+      setCzasStart(startTime)
+    }
+
   };
 
   const handleBackClick = () => {
@@ -849,7 +850,7 @@ const App: React.FC = () => {
     // Oblicz czas trwania
     let czasTrwania: number = new Date().getTime() - czasStart;
     console.log('Liczba kliknięć: ' + klik);
-  console.log('Czas trwania: ' + czasTrwania + ' ms');
+    console.log('Czas trwania: ' + czasTrwania + ' ms');
   };
 
   return (
